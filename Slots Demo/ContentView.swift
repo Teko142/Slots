@@ -18,7 +18,7 @@ struct ContentView: View {
     var body: some View {
         ZStack{
             
-            //Background
+            // Background
             Rectangle()
                 .foregroundColor(Color(red: 200/255, green: 143/255, blue: 32/255))
                 .edgesIgnoringSafeArea(.all)
@@ -32,7 +32,7 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                //Title
+                // Title
                 HStack{
                     Image(systemName: "star.fill")
                         .foregroundColor(.yellow)
@@ -56,7 +56,7 @@ struct ContentView: View {
                 
                 Spacer()
                 
-                //Cards
+                // Cards
                 HStack{
                     Spacer()
                     
