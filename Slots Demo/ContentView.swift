@@ -175,76 +175,29 @@ struct ContentView: View {
             
             //Processing for singkle spin
             
-            if self.numbers[3] == self.numbers[4] && self.numbers[4] == self.numbers[5] {
-                
-                //Won
-                matches += 1
-                //Update backgrounds to green
-                self.backgrounds[3] = Color.green
-                self.backgrounds[4] = Color.green
-                self.backgrounds[5] = Color.green
-                
-            }
+            if isMatch(3, 4, 5) { matches += 1}
+            
         }
         else {
-            //Processing for max spin
             
+            //Processing for max spin
             //Top row
-            if self.numbers[0] == self.numbers[1] && self.numbers[1] == self.numbers[2] {
-                
-                //Won
-                matches += 1
-                //Update backgrounds to green
-                self.backgrounds[0] = Color.green
-                self.backgrounds[1] = Color.green
-                self.backgrounds[2] = Color.green
-            }
+            if isMatch(0, 1, 2) { matches += 1}
+            
+            
             // Middle row
             
-            if self.numbers[3] == self.numbers[4] && self.numbers[4] == self.numbers[5] {
-                
-                //Won
-                matches += 1
-                //Update backgrounds to green
-                self.backgrounds[3] = Color.green
-                self.backgrounds[4] = Color.green
-                self.backgrounds[5] = Color.green
-                
-            }
+            if isMatch(3, 4, 5) { matches += 1}
             
             // Bottom row
             
-            if self.numbers[6] == self.numbers[7] && self.numbers[7] == self.numbers[8] {
-                
-                //Won
-                matches += 1
-                //Update backgrounds to green
-                self.backgrounds[6] = Color.green
-                self.backgrounds[7] = Color.green
-                self.backgrounds[8] = Color.green
-            }
+            if isMatch(6, 7, 8) { matches += 1}
             
             // Diagonal top left to bottom right
-            if self.numbers[0] == self.numbers[4] && self.numbers[4] == self.numbers[8] {
-                
-                //Won
-                matches += 1
-                //Update backgrounds to green
-                self.backgrounds[0] = Color.green
-                self.backgrounds[4] = Color.green
-                self.backgrounds[8] = Color.green
-            }
+            if isMatch(0, 4, 8) { matches += 1}
             
             // Diagonal top right to bottom left
-            if self.numbers[2] == self.numbers[4] && self.numbers[4] == self.numbers[6] {
-                
-                //Won
-                matches += 1
-                //Update backgrounds to green
-                self.backgrounds[2] = Color.green
-                self.backgrounds[4] = Color.green
-                self.backgrounds[6] = Color.green
-            }
+            if isMatch(2, 4, 6) { matches += 1}
         }
         
         // Check matches and distribute credits
@@ -261,7 +214,23 @@ struct ContentView: View {
             self.credits -= betAmount * 5
         }
     }
+    
+    func isMatch (_ index1:Int, _ index2:Int, _ index3:Int) -> Bool{
+        
+        if self.numbers[index1] == self.numbers[index2] && self.numbers[index2] == self.numbers[index3] {
+            
+            self.backgrounds[index1] = Color.green
+            self.backgrounds[index2] = Color.green
+            self.backgrounds[index3] = Color.green
+            
+            
+        }
+        
+        return false
+        
+    }
 }
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
